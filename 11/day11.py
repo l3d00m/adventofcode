@@ -1,37 +1,38 @@
 from aocd import get_data
-lines = get_data(day=10, year=2020).splitlines()
+lines = get_data(day=11, year=2020).splitlines()
 
 from pathlib import Path
 p = Path(__file__).resolve()
-with open(p.parent / 'in.txt') as f: 
-    lines = f.readlines()
+#with open(p.parent / 'in.txt') as f: 
+#    lines = f.readlines()
 
-lines = [line.replace("L","#") for line in lines]
+#lines = [line.replace("L","#") for line in lines]
     
-def get_adjacent(x,y, this_item, lines, cnt=5):
-    start_x = 0 if x-cnt-1 < 0 else x-cnt-1
-    end_x = len(lines[y]) - 1 if x+cnt+1 >= len(lines[y]) else x+cnt+1
-    start_y = 0 if y-cnt-1 < 0 else y-cnt-1
-    end_y = len(lines) - 1 if y+cnt+1 >= len(lines) else y+cnt+1
+def get_adjacent(x,y, this_item, lines):
+    start_x = 0 if x-1 < 0 else x-1
+    end_x = len(lines[y]) if x+2 >= len(lines[y]) else x+2
+    start_y = 0 if y-1 < 0 else y-1
+    end_y = len(lines) if y+2 >= len(lines) else y+2
 
-    cnt = 0
-    for this_y in range(start_y, end_y):
-        diag_x1 = x + abs(this_y - y)
-        diag_x2 = x - abs(this_y - y)
-        for this_x in range(start_x, end_x):
-            item = lines[this_y][this_x]
-            if this_x == x and this_y == y:
-                continue
-            elif this_x == x and item == "#":
-                cnt += 1
-            elif this_y == y and item == "#":
-                cnt += 1
-            elif this_x == diag_x1 or this_x == diag_x2 and item == "#":
-                cnt += 1
-
+    cnt = sum([line[start_x:end_x].count("#") for line in lines[start_y:end_y]])
+    if this_item == '#':
+        cnt -= 1
     return cnt
 
-for y,line in enumerate(lines):
-    for x, item in enumerate(line):
-        if item != ".":
-            get_adjacent(x,y, item, lines)
+end_layout = lines.copy()
+prev_layout = []
+while end_layout != prev_layout:
+    prev_layout = end_layout.copy()
+    for y,line in enumerate(end_layout):
+        for x, item in enumerate(line):
+            if item != ".":
+                adjacent_cnt = get_adjacent(x,y, item, prev_layout)
+                if item == "#" and adjacent_cnt >= 4:
+                   end_layout[y] = end_layout[y][:x] + "L" + end_layout[y][x + 1:]
+                elif item == "L" and adjacent_cnt == 0:
+                    end_layout[y] = end_layout[y][:x] + "#" + end_layout[y][x + 1:]
+    print("sadsasd")
+
+cnt = sum([line.count("#") for line in end_layout])
+print(cnt)
+pass
