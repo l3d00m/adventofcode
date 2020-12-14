@@ -14,3 +14,8 @@ Induction: Calculate the values in reverse order
 ## Day 13
 
 - `if` in list comprehensions: `[int(line) for line in line[1].split(",") if line is not "x" ]`
+
+
+## Day 14
+
+- itertools has some black magic stuff, e.g. `product` can be used to calculate all combinations from a list of tuples.
