@@ -5,7 +5,7 @@ lines = get_data(day=13, year=2020).splitlines()
 
 p = Path(__file__).resolve()
 with open(p.parent / 'in.txt') as f:
-    lines2 = f.read().splitlines()
+    lines = f.read().splitlines()
 
 # lines = [line.replace("L","#") for line in lines]
 
@@ -36,18 +36,16 @@ for i, bus in enumerate(lines[1].split(",")):
 
 def iterate_timestamp(expected_time):
     for i, bus in enumerate(buses):
-        if expected_time % bus == 0:
+        if (expected_time + elems[i]) % bus == 0:
             if i+1 == len(elems):
                 return True
-            else:
-                expected_time += elems[i+1] - elems[i]
         else:
             return False
 
 
 max_index = buses.index(max(buses))
-i = math.floor(100000000000000/buses[max_index])
-#i = 0
+#i = math.floor(100000000000000/buses[max_index])
+i = 0
 result = False
 while result is False:
     i += 1
