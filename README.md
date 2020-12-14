@@ -1,3 +1,7 @@
+# My solutions to Advent of Code 2020 in Python
+
+I started off with Jupyter Notebooks and later switched to Python scripts.
+
 # Things I learned
 
 ## Day 10
