@@ -1,4 +1,3 @@
-import math
 from pathlib import Path
 from aocd import get_data
 lines = get_data(day=13, year=2020).splitlines()
@@ -44,7 +43,7 @@ def iterate_timestamp(expected_time):
 
 
 max_index = buses.index(max(buses))
-#i = math.floor(100000000000000/buses[max_index])
+# i = math.floor(100000000000000/buses[max_index])
 i = 0
 result = False
 while result is False:

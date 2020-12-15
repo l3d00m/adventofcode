@@ -4,7 +4,7 @@ lines = get_data(day=12, year=2020).splitlines()
 
 p = Path(__file__).resolve()
 with open(p.parent / 'in.txt') as f:
-   lines2 = f.read().splitlines()
+    lines2 = f.read().splitlines()
 
 # lines = [line.replace("L","#") for line in lines]
 
@@ -41,9 +41,9 @@ pos_east = abs(pos[EAST] - pos[WEST])
 print(pos_east + pos_north)
 # > 2867
 
-## PART B
-waypoint = [1,10]
-ship = [0,0]
+# PART B
+waypoint = [1, 10]
+ship = [0, 0]
 for line in lines:
     this_direction = direction
     val = int(line[1:])

@@ -1,5 +1,3 @@
-import math
-from pathlib import Path
 
 puzzle_in = [1, 12, 0, 20, 8, 16]
 
@@ -21,7 +19,7 @@ def get_number_a(start_turns, index_spoken):
 
 
 def get_number_b(start_turns, index_spoken):
-    """Stores only the last occurence for each number in a dict. 
+    """Stores only the last occurence for each number in a dict.
        More efficient, but still takes longer than it normally should for an AoC puzzle."""
     numbers = {}
     for i, val in enumerate(start_turns):
