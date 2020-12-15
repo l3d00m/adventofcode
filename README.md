@@ -23,3 +23,7 @@ Induction: Calculate the values in reverse order
 ## Day 14
 
 - itertools has some black magic stuff, e.g. `product` can be used to calculate all combinations from a list of tuples.
+
+## Day 15
+
+- When searching where to improve the effiency/performance of the code, it's helpful to look at parts of the codes where stuff is calculated/stored that is never returned/used. E.g. a full turn list (my first solution) was unneccessary because I only needed to now when the **last time** was a number has been used.
