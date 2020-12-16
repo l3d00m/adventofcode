@@ -29,24 +29,17 @@ for i, bus in enumerate(lines[1].split(",")):
         continue
     buses.append((i, int(bus)))
 
-buses = sorted(buses, key=lambda x: x[1], reverse=True)
-max_offset, max_bus = buses[0]
-# Remove first element as we store it seperately
-buses.pop(0)
-min_offset, _ = buses[-1]
-
-
-i = math.floor(100000000000000 / max_bus)
-#i = 0
-result = False
-while result is False:
-    i += 1
-    expected_time = i * max_bus - max_offset
-    for offset, bus in buses:
-        if (expected_time + offset) % bus != 0:
+while len(buses) != 1:
+    offset1, bus1 = buses[-1]
+    offset2, bus2 = buses[-2]
+    i = 0
+    while bus1 != bus2:
+        number = bus1 * i + offset1
+        if (number - offset2) % bus2 == 0:
             break
-        elif offset == min_offset:
-            result = True
-            break
+        i += 1
+    # Replace last two buses by their equivalent
+    buses = buses[:-2]
+    buses.append((number, bus1 * bus2))
 
-print(expected_time)
+print(buses[0][1] - buses[0][0])
