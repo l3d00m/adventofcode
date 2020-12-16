@@ -18,7 +18,7 @@ Induction: Calculate the values in reverse order
 ## Day 13
 
 - `if` in list comprehensions: `[int(line) for line in line[1].split(",") if line is not "x" ]`
-
+- https://en.wikipedia.org/wiki/Chinese_remainder_theorem
 
 ## Day 14
 
@@ -27,3 +27,5 @@ Induction: Calculate the values in reverse order
 ## Day 15
 
 - When searching where to improve the effiency/performance of the code, it's helpful to look at parts of the codes where stuff is calculated/stored that is never returned/used. E.g. a full turn list (my first solution) was unneccessary because I only needed to now when the **last time** was a number has been used.
+
+## Day 16
