@@ -53,7 +53,7 @@ def get_active_neighbors_4d(index, matrix):
 
 
 # Loop for Part A
-for _ in range(6):
+for _ in range(iterations):
     pocketdim_old = pocketdim.copy()
     for index, el in np.ndenumerate(pocketdim_old):
         active_cnt = get_active_neighbors_3d(index, pocketdim_old)
@@ -67,7 +67,7 @@ print(total_cnt)
 
 
 # Loop for Part B
-for i2 in range(6):
+for i2 in range(iterations):
     pocketdim_old = pocketdim4d.copy()
     # This loop is a little bit inefficient,
     # since we are comparing every element even in the first loops. Still runs fast enough though

@@ -6,9 +6,8 @@ I started off with Jupyter Notebooks and later switched to Python scripts.
 
 ## Day 10
 
-Memoization: Store the function result for the given parameters
-
-Induction: Calculate the values in reverse order
+- Memoization: Store the function result for the given parameters
+- Induction: Calculate the values in reverse order
 
 
 ## Day 12
@@ -28,4 +27,10 @@ Induction: Calculate the values in reverse order
 
 - When searching where to improve the effiency/performance of the code, it's helpful to look at parts of the codes where stuff is calculated/stored that is never returned/used. E.g. a full turn list (my first solution) was unneccessary because I only needed to now when the **last time** was a number has been used.
 
-## Day 16
+## Day 17
+
+- I used a traditional approach, but later learned that scipys convolution function could have been used for faster and cleaner processing.
+
+## Day 18
+
+- Pyparsing is powerful: It has an `infixNotation` function, which is very powerful for parsing nested expressions containing operators, i.e. arithmetic expressions. 
