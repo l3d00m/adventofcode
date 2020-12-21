@@ -5,7 +5,6 @@ lines = get_data(day=21, year=2020).splitlines()
 p = Path(__file__).resolve()
 with open(p.parent / 'in.txt') as f:
     lines2 = f.read().splitlines()
-
 # Use pyparsing for fun
 import pyparsing as pp
 rule = pp.Group(pp.ZeroOrMore(pp.Word(pp.alphas))) + pp.Suppress("(contains ") + \
@@ -46,4 +45,18 @@ while prev_len != len(result):
 result = {k: v for k, v in sorted(result.items(), key=lambda item: item[1])}
 foods = ",".join([item for item in result.keys()])
 print(foods)
-pass
+
+# Solution with networkx maximum matching from
+# https://github.com/hltk/adventofcode/blob/main/2020/python/21.py
+# Added visualizations for understanding
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.Graph()
+for a, b in allergens.items():
+    G.add_edges_from((x, a) for x in b)
+matching = nx.algorithms.bipartite.matching.maximum_matching(G)
+cover = nx.algorithms.bipartite.to_vertex_cover(G, matching)
+print(",".join(cover))
+pos = nx.spring_layout(G)
+nx.draw(G, pos, with_labels=True)
+plt.show()
