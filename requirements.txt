@@ -1,0 +1,5 @@
+aocd
+numpy
+pyparsing
+flake8
+autopep8
