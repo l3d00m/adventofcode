@@ -3,3 +3,5 @@ numpy
 pyparsing
 flake8
 autopep8
+networkx
+matplotlib
