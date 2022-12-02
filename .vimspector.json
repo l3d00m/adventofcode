@@ -1,0 +1,17 @@
+{
+  "configurations": {
+    "aoc: Launch": {
+      "adapter": "debugpy",
+      "filetypes": [ "python" ],
+      "configuration": {
+        "name": "aoc Launch",
+        "type": "python",
+        "request": "launch",
+        "python": "python3",
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "${file}"
+      }
+    }
+  }
+}
